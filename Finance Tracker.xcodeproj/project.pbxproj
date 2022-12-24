@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC70E10A295798A800D3637D /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70E109295798A800D3637D /* TransactionsViewModel.swift */; };
+		FC70E10C295798DA00D3637D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70E10B295798DA00D3637D /* Transaction.swift */; };
 		FC7E7457295734FE002C2F98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7E7456295734FE002C2F98 /* AppDelegate.swift */; };
 		FC7E7459295734FE002C2F98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7E7458295734FE002C2F98 /* SceneDelegate.swift */; };
-		FC7E745B295734FE002C2F98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7E745A295734FE002C2F98 /* ViewController.swift */; };
+		FC7E745B295734FE002C2F98 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7E745A295734FE002C2F98 /* TransactionsViewController.swift */; };
 		FC7E7461295734FE002C2F98 /* Finance_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC7E745F295734FE002C2F98 /* Finance_Tracker.xcdatamodeld */; };
 		FC7E7463295734FE002C2F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7E7462295734FE002C2F98 /* Assets.xcassets */; };
 		FC7E7466295734FE002C2F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7E7464295734FE002C2F98 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC70E109295798A800D3637D /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
+		FC70E10B295798DA00D3637D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		FC7E7453295734FE002C2F98 /* Finance Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finance Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC7E7456295734FE002C2F98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC7E7458295734FE002C2F98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC7E745A295734FE002C2F98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC7E745A295734FE002C2F98 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		FC7E7460295734FE002C2F98 /* Finance_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Finance_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		FC7E7462295734FE002C2F98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC7E7465295734FE002C2F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC70E1062957981400D3637D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC70E10B295798DA00D3637D /* Transaction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC70E1072957982800D3637D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC7E745A295734FE002C2F98 /* TransactionsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC70E1082957984000D3637D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC70E109295798A800D3637D /* TransactionsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		FC7E744A295734FE002C2F98 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +84,49 @@
 		FC7E7455295734FE002C2F98 /* Finance Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				FC7E746D295739A7002C2F98 /* SupportingFiles */,
+				FC7E746E295739CB002C2F98 /* Resources */,
+				FC70E1062957981400D3637D /* Models */,
+				FC7E746F29573A3E002C2F98 /* TransactionsList */,
+				FC7E747029573A97002C2F98 /* NewTransaction */,
+			);
+			path = "Finance Tracker";
+			sourceTree = "<group>";
+		};
+		FC7E746D295739A7002C2F98 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				FC7E7456295734FE002C2F98 /* AppDelegate.swift */,
 				FC7E7458295734FE002C2F98 /* SceneDelegate.swift */,
-				FC7E745A295734FE002C2F98 /* ViewController.swift */,
-				FC7E7462295734FE002C2F98 /* Assets.xcassets */,
 				FC7E7464295734FE002C2F98 /* LaunchScreen.storyboard */,
 				FC7E7467295734FE002C2F98 /* Info.plist */,
 				FC7E745F295734FE002C2F98 /* Finance_Tracker.xcdatamodeld */,
 			);
-			path = "Finance Tracker";
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FC7E746E295739CB002C2F98 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FC7E7462295734FE002C2F98 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FC7E746F29573A3E002C2F98 /* TransactionsList */ = {
+			isa = PBXGroup;
+			children = (
+				FC70E1072957982800D3637D /* View */,
+				FC70E1082957984000D3637D /* ViewModel */,
+			);
+			path = TransactionsList;
+			sourceTree = "<group>";
+		};
+		FC7E747029573A97002C2F98 /* NewTransaction */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewTransaction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +199,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC7E745B295734FE002C2F98 /* ViewController.swift in Sources */,
+				FC7E745B295734FE002C2F98 /* TransactionsViewController.swift in Sources */,
+				FC70E10A295798A800D3637D /* TransactionsViewModel.swift in Sources */,
+				FC70E10C295798DA00D3637D /* Transaction.swift in Sources */,
 				FC7E7457295734FE002C2F98 /* AppDelegate.swift in Sources */,
 				FC7E7459295734FE002C2F98 /* SceneDelegate.swift in Sources */,
 				FC7E7461295734FE002C2F98 /* Finance_Tracker.xcdatamodeld in Sources */,
@@ -281,10 +345,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4ARG8W2BQX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Finance Tracker/Info.plist";
+				INFOPLIST_FILE = "Finance Tracker/SupportingFiles/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,10 +375,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4ARG8W2BQX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Finance Tracker/Info.plist";
+				INFOPLIST_FILE = "Finance Tracker/SupportingFiles/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
