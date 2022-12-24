@@ -9,10 +9,12 @@ import UIKit
 
 class TransactionsViewController: UIViewController {
     
+    var viewModel: TransactionsViewModelProtocol!
+    
     private let balanceLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "0$"
+        label.text = "0.0 $"
         label.font = .systemFont(ofSize: 24)
         label.backgroundColor = .systemGray6
         label.layer.masksToBounds = true
@@ -20,11 +22,11 @@ class TransactionsViewController: UIViewController {
         return label
     }()
     
-    private let replesnishButton: UIButton = {
+    private let topUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
-        button.setTitle("Add", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+        button.setTitle("Top Up", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         button.backgroundColor = .systemGreen
         button.layer.cornerRadius = 10
         return button
@@ -44,7 +46,7 @@ class TransactionsViewController: UIViewController {
         let tableView = UITableView()
         return tableView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Transactions"
@@ -55,12 +57,12 @@ class TransactionsViewController: UIViewController {
         transactionsList.register(UITableViewCell.self, forCellReuseIdentifier: "transactionCell")
         
         view.addSubview(balanceLabel)
-        view.addSubview(replesnishButton)
+        view.addSubview(topUpButton)
         view.addSubview(addTransactionButton)
         view.addSubview(transactionsList)
         
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
-        replesnishButton.translatesAutoresizingMaskIntoConstraints = false
+        topUpButton.translatesAutoresizingMaskIntoConstraints = false
         addTransactionButton.translatesAutoresizingMaskIntoConstraints = false
         transactionsList.translatesAutoresizingMaskIntoConstraints = false
         
@@ -69,11 +71,11 @@ class TransactionsViewController: UIViewController {
             balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             balanceLabel.heightAnchor.constraint(equalToConstant: 50),
             
-            replesnishButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            replesnishButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            replesnishButton.heightAnchor.constraint(equalToConstant: 50),
-            replesnishButton.widthAnchor.constraint(equalToConstant: 70),
-            replesnishButton.leadingAnchor.constraint(equalTo: balanceLabel.trailingAnchor, constant: 20),
+            topUpButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            topUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            topUpButton.heightAnchor.constraint(equalToConstant: 50),
+            topUpButton.widthAnchor.constraint(equalToConstant: 80),
+            topUpButton.leadingAnchor.constraint(equalTo: balanceLabel.trailingAnchor, constant: 20),
             
             addTransactionButton.topAnchor.constraint(equalTo: balanceLabel.bottomAnchor, constant: 20),
             addTransactionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -87,22 +89,34 @@ class TransactionsViewController: UIViewController {
         ])
         
         addTransactionButton.addTarget(self, action: #selector(addTransactionButtonAction), for: .touchUpInside)
+        topUpButton.addTarget(self, action: #selector(topUpButtonAction), for: .touchUpInside)
+        
+        viewModel.viewModelDidChange = { [weak self] viewModel in
+            guard let self = self else { return }
+            self.balanceLabel.text = "\(self.viewModel.balance)"
+        }
     }
     
     @objc private func addTransactionButtonAction() {
         let newTransactionVC = NewTransactionViewController()
         navigationController?.pushViewController(newTransactionVC, animated: true)
     }
+    
+    @objc private func topUpButtonAction() {
+        viewModel.topUpBalance(200)
+        transactionsList.reloadData()
+    }
 }
 
 extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        viewModel.transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = transactionsList.dequeueReusableCell(withIdentifier: "transactionCell")!
-        cell.textLabel?.text = "sdf"
+        let transaction = viewModel.transactions[indexPath.row]
+        cell.textLabel?.text = "\(transaction.amount)   \(transaction.date)"
         return cell
     }
     
@@ -111,7 +125,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        5
+        1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

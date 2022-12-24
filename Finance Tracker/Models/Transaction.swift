@@ -10,7 +10,7 @@ import Foundation
 struct Transaction {
     let amount: Double
     let date: Date
-    let category: TransactionCategory
+    let category: TransactionCategory?
     
     enum TransactionCategory {
         case groceries

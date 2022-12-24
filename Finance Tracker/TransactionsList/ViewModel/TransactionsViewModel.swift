@@ -7,6 +7,37 @@
 
 import Foundation
 
-class TransactionsViewModel {
+protocol TransactionsViewModelProtocol: AnyObject {
+    var balance: Double { get set }
+    var transactions: [Transaction] { get set }
+    var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)? { get set }
+    func topUpBalance(_ amount: Double)
+    func numbersOfRows() -> Int
+}
+
+class TransactionsViewModel: TransactionsViewModelProtocol {
+
+    var balance: Double = 0.0 {
+        didSet {
+            viewModelDidChange?(self)
+        }
+    }
     
+    var transactions: [Transaction] = []
+    
+    var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
+    
+    func topUpBalance(_ amount: Double) {
+        balance += amount
+        createTransaction(amount)
+    }
+    
+    func numbersOfRows() -> Int {
+        transactions.count
+    }
+    
+    private func createTransaction(_ amount: Double) {
+        let transaction = Transaction(amount: amount, date: Date(), category: nil)
+        transactions.append(transaction)
+    }
 }

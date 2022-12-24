@@ -19,7 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        let navigationController = UINavigationController(rootViewController: TransactionsViewController())
+        let transactionsVC = TransactionsViewController()
+        let transactionsVM = TransactionsViewModel()
+        transactionsVC.viewModel = transactionsVM
+        let navigationController = UINavigationController(rootViewController: transactionsVC)
         
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
