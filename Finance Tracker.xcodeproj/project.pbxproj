@@ -15,6 +15,8 @@
 		FC7E7461295734FE002C2F98 /* Finance_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC7E745F295734FE002C2F98 /* Finance_Tracker.xcdatamodeld */; };
 		FC7E7463295734FE002C2F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7E7462295734FE002C2F98 /* Assets.xcassets */; };
 		FC7E7466295734FE002C2F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7E7464295734FE002C2F98 /* LaunchScreen.storyboard */; };
+		FCD065A22957ABCF00CC15F3 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD065A12957ABCF00CC15F3 /* TransactionsView.swift */; };
+		FCD065A62957B1B500CC15F3 /* NewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD065A52957B1B500CC15F3 /* NewTransactionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		FC7E7462295734FE002C2F98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC7E7465295734FE002C2F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC7E7467295734FE002C2F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCD065A12957ABCF00CC15F3 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		FCD065A52957B1B500CC15F3 /* NewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				FC7E745A295734FE002C2F98 /* TransactionsViewController.swift */,
+				FCD065A12957ABCF00CC15F3 /* TransactionsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,8 +130,25 @@
 		FC7E747029573A97002C2F98 /* NewTransaction */ = {
 			isa = PBXGroup;
 			children = (
+				FCD065A32957B17200CC15F3 /* View */,
+				FCD065A42957B17E00CC15F3 /* ViewModel */,
 			);
 			path = NewTransaction;
+			sourceTree = "<group>";
+		};
+		FCD065A32957B17200CC15F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCD065A52957B1B500CC15F3 /* NewTransactionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCD065A42957B17E00CC15F3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,8 +225,10 @@
 				FC70E10A295798A800D3637D /* TransactionsViewModel.swift in Sources */,
 				FC70E10C295798DA00D3637D /* Transaction.swift in Sources */,
 				FC7E7457295734FE002C2F98 /* AppDelegate.swift in Sources */,
+				FCD065A62957B1B500CC15F3 /* NewTransactionViewController.swift in Sources */,
 				FC7E7459295734FE002C2F98 /* SceneDelegate.swift in Sources */,
 				FC7E7461295734FE002C2F98 /* Finance_Tracker.xcdatamodeld in Sources */,
+				FCD065A22957ABCF00CC15F3 /* TransactionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

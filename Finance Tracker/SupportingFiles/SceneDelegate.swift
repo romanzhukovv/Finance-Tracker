@@ -19,7 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = TransactionsViewController()
+        let navigationController = UINavigationController(rootViewController: TransactionsViewController())
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+//        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

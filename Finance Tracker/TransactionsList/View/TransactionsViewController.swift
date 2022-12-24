@@ -47,7 +47,7 @@ class TransactionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Transactions"
         view.backgroundColor = .white
         
         transactionsList.delegate = self
@@ -65,11 +65,11 @@ class TransactionsViewController: UIViewController {
         transactionsList.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            balanceLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            balanceLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             balanceLabel.heightAnchor.constraint(equalToConstant: 50),
             
-            replesnishButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            replesnishButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             replesnishButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             replesnishButton.heightAnchor.constraint(equalToConstant: 50),
             replesnishButton.widthAnchor.constraint(equalToConstant: 70),
@@ -85,6 +85,13 @@ class TransactionsViewController: UIViewController {
             transactionsList.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             transactionsList.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        addTransactionButton.addTarget(self, action: #selector(addTransactionButtonAction), for: .touchUpInside)
+    }
+    
+    @objc private func addTransactionButtonAction() {
+        let newTransactionVC = NewTransactionViewController()
+        navigationController?.pushViewController(newTransactionVC, animated: true)
     }
 }
 
@@ -110,7 +117,5 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         "Transactions"
     }
-    
-    
 }
 
