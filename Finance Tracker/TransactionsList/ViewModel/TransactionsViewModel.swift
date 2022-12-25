@@ -8,27 +8,36 @@
 import Foundation
 
 protocol TransactionsViewModelProtocol: AnyObject {
+    var router: RouterProtocol? { get set }
     var balance: Double { get set }
     var transactions: [Transaction]! { get set }
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)? { get set }
     func topUpBalance(_ amount: Double)
+    func addTransaction()
     func numbersOfRows() -> Int
 }
 
 final class TransactionsViewModel: TransactionsViewModelProtocol {
+    
+    var router: RouterProtocol?
+    
     var transactions: [Transaction]!
-
+    
+    var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
+    
     var balance: Double = 0.0 {
         didSet {
             viewModelDidChange?(self)
         }
     }
     
-    var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
-    
     func topUpBalance(_ amount: Double) {
         balance += amount
         createTransaction(amount)
+    }
+    
+    func addTransaction() {
+        router?.pushNewTransactionView()
     }
     
     func numbersOfRows() -> Int {

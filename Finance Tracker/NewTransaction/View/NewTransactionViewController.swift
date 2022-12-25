@@ -9,6 +9,8 @@ import UIKit
 
 class NewTransactionViewController: FTBaseViewController<NewTransactionView> {
     
+    var viewModel: NewTransactionViewModelProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

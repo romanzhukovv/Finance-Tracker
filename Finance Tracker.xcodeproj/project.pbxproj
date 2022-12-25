@@ -20,6 +20,8 @@
 		FCCCE461295878D40029D573 /* FTBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE460295878D40029D573 /* FTBaseViewController.swift */; };
 		FCCCE4632958955C0029D573 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE4622958955C0029D573 /* NewTransactionView.swift */; };
 		FCCCE4652958CA140029D573 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE4642958CA140029D573 /* Configurator.swift */; };
+		FCCCE4672958DEA90029D573 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE4662958DEA90029D573 /* Router.swift */; };
+		FCCCE4692958E2560029D573 /* NewTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE4682958E2560029D573 /* NewTransactionViewModel.swift */; };
 		FCD065A22957ABCF00CC15F3 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD065A12957ABCF00CC15F3 /* TransactionsView.swift */; };
 		FCD065A62957B1B500CC15F3 /* NewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD065A52957B1B500CC15F3 /* NewTransactionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		FCCCE460295878D40029D573 /* FTBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTBaseViewController.swift; sourceTree = "<group>"; };
 		FCCCE4622958955C0029D573 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
 		FCCCE4642958CA140029D573 /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		FCCCE4662958DEA90029D573 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		FCCCE4682958E2560029D573 /* NewTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewModel.swift; sourceTree = "<group>"; };
 		FCD065A12957ABCF00CC15F3 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		FCD065A52957B1B500CC15F3 /* NewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +166,7 @@
 				FCCCE45A295874350029D573 /* FTBaseView.swift */,
 				FCCCE460295878D40029D573 /* FTBaseViewController.swift */,
 				FCCCE4642958CA140029D573 /* Configurator.swift */,
+				FCCCE4662958DEA90029D573 /* Router.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 		FCD065A42957B17E00CC15F3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FCCCE4682958E2560029D573 /* NewTransactionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -262,9 +268,11 @@
 				FC7E7459295734FE002C2F98 /* SceneDelegate.swift in Sources */,
 				FCCCE45B295874350029D573 /* FTBaseView.swift in Sources */,
 				FCCCE461295878D40029D573 /* FTBaseViewController.swift in Sources */,
+				FCCCE4672958DEA90029D573 /* Router.swift in Sources */,
 				FC7E7461295734FE002C2F98 /* Finance_Tracker.xcdatamodeld in Sources */,
 				FCD065A22957ABCF00CC15F3 /* TransactionsView.swift in Sources */,
 				FCCCE4652958CA140029D573 /* Configurator.swift in Sources */,
+				FCCCE4692958E2560029D573 /* NewTransactionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

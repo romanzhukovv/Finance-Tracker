@@ -20,8 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let transactionsVC = Configurator.createTransactionListModule()
-        let navigationController = UINavigationController(rootViewController: transactionsVC)
+        let navigationController = UINavigationController()
+        let configurator = Configurator()
+        let router = Router(navigationController: navigationController, configurator: configurator)
+        router.initTransactionsListView()
+        window?.rootViewController = navigationController
         
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
@@ -31,7 +34,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         
-        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 

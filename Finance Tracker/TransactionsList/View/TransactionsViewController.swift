@@ -19,10 +19,11 @@ final class TransactionsViewController: FTBaseViewController<TransactionsView> {
     }
     
     @objc private func addTransactionButtonAction() {
-        let newTransactionVC = NewTransactionViewController()
-        newTransactionVC.title = "New Transaction"
-        newTransactionVC.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(newTransactionVC, animated: true)
+//        let newTransactionVC = NewTransactionViewController()
+//        newTransactionVC.title = "New Transaction"
+//        newTransactionVC.navigationItem.largeTitleDisplayMode = .never
+//        navigationController?.pushViewController(newTransactionVC, animated: true)
+        viewModel.addTransaction()
     }
 }
 
