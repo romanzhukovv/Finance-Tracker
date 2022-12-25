@@ -11,7 +11,6 @@ class FTBaseViewController<CustomView: UIView>: UIViewController, HasCustomView 
     typealias CustomView = CustomView
     
     override func loadView() {
-        super.loadView()
         let rootView = CustomView()
         view = rootView
     }

@@ -23,8 +23,9 @@ final class TransactionsViewController: FTBaseViewController<TransactionsView> {
                                       preferredStyle: .alert)
         
         let addAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            guard let amount = alert.textFields?.first?.text, !amount.isEmpty, Double(amount) != nil else { return }
-            completion(amount)
+            if let amount = alert.textFields?.first?.text, !amount.isEmpty, Double(amount) != nil, Double(amount) != 0 {
+                completion(amount)
+            }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
@@ -39,7 +40,8 @@ final class TransactionsViewController: FTBaseViewController<TransactionsView> {
     }
     
     @objc private func topUpButtonAction() {
-        showAlert { amount in
+        showAlert { [weak self] amount in
+            guard let self = self else { return }
             self.viewModel.topUpBalance(Double(amount) ?? 0.0)
         }
     }

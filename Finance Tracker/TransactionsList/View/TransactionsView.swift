@@ -61,7 +61,7 @@ final class TransactionsView: FTBaseView {
         
         viewModel.viewModelDidChange = { [weak self] viewModel in
             guard let self = self else { return }
-            self.balanceLabel.text = "\(self.viewModel.balance)"
+            self.balanceLabel.text = "\(self.viewModel.balance)$"
             self.transactionsList.reloadData()
         }
     }
@@ -121,7 +121,6 @@ extension TransactionsView {
     @objc private func addTransactionButtonAction() {
         viewModel.addTransaction()
     }
-    
 }
 
 extension TransactionsView: UITableViewDataSource, UITableViewDelegate {
