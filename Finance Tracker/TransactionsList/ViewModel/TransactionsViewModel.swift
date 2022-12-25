@@ -9,14 +9,14 @@ import Foundation
 
 protocol TransactionsViewModelProtocol: AnyObject {
     var balance: Double { get set }
-    var transactions: [Transaction] { get set }
+    var transactions: [Transaction]! { get set }
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)? { get set }
     func topUpBalance(_ amount: Double)
     func numbersOfRows() -> Int
 }
 
 final class TransactionsViewModel: TransactionsViewModelProtocol {
-    var transactions: [Transaction] = []
+    var transactions: [Transaction]!
 
     var balance: Double = 0.0 {
         didSet {
@@ -36,7 +36,7 @@ final class TransactionsViewModel: TransactionsViewModelProtocol {
     }
     
     private func createTransaction(_ amount: Double) {
-        let transaction = Transaction(amount: amount, date: Date(), category: nil)
+        let transaction = Transaction(amount: amount, date: Date(), transactionType: .topUp)
         transactions.insert(transaction, at: 0)
     }
 }

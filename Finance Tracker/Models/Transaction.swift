@@ -10,13 +10,19 @@ import Foundation
 struct Transaction {
     let amount: Double
     let date: Date
-    let category: TransactionCategory?
+    let transactionType: TransactionType
     
-    enum TransactionCategory {
-        case groceries
-        case taxi
-        case electronics
-        case restaurant
-        case other
+    enum TransactionType {
+        case topUp
+        case purchase(PurchaseCategory)
+        
+        enum PurchaseCategory {
+            case groceries
+            case taxi
+            case electronics
+            case restaurant
+            case other
+        }
     }
+    
 }

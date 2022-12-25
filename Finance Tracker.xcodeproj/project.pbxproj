@@ -18,6 +18,8 @@
 		FCCCE45B295874350029D573 /* FTBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE45A295874350029D573 /* FTBaseView.swift */; };
 		FCCCE45D295874D90029D573 /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE45C295874D90029D573 /* UIView+ext.swift */; };
 		FCCCE461295878D40029D573 /* FTBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE460295878D40029D573 /* FTBaseViewController.swift */; };
+		FCCCE4632958955C0029D573 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE4622958955C0029D573 /* NewTransactionView.swift */; };
+		FCCCE4652958CA140029D573 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE4642958CA140029D573 /* Configurator.swift */; };
 		FCD065A22957ABCF00CC15F3 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD065A12957ABCF00CC15F3 /* TransactionsView.swift */; };
 		FCD065A62957B1B500CC15F3 /* NewTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD065A52957B1B500CC15F3 /* NewTransactionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		FCCCE45A295874350029D573 /* FTBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTBaseView.swift; sourceTree = "<group>"; };
 		FCCCE45C295874D90029D573 /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
 		FCCCE460295878D40029D573 /* FTBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTBaseViewController.swift; sourceTree = "<group>"; };
+		FCCCE4622958955C0029D573 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
+		FCCCE4642958CA140029D573 /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
 		FCD065A12957ABCF00CC15F3 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		FCD065A52957B1B500CC15F3 /* NewTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +161,7 @@
 			children = (
 				FCCCE45A295874350029D573 /* FTBaseView.swift */,
 				FCCCE460295878D40029D573 /* FTBaseViewController.swift */,
+				FCCCE4642958CA140029D573 /* Configurator.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				FCD065A52957B1B500CC15F3 /* NewTransactionViewController.swift */,
+				FCCCE4622958955C0029D573 /* NewTransactionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,11 +258,13 @@
 				FC7E7457295734FE002C2F98 /* AppDelegate.swift in Sources */,
 				FCCCE45D295874D90029D573 /* UIView+ext.swift in Sources */,
 				FCD065A62957B1B500CC15F3 /* NewTransactionViewController.swift in Sources */,
+				FCCCE4632958955C0029D573 /* NewTransactionView.swift in Sources */,
 				FC7E7459295734FE002C2F98 /* SceneDelegate.swift in Sources */,
 				FCCCE45B295874350029D573 /* FTBaseView.swift in Sources */,
 				FCCCE461295878D40029D573 /* FTBaseViewController.swift in Sources */,
 				FC7E7461295734FE002C2F98 /* Finance_Tracker.xcdatamodeld in Sources */,
 				FCD065A22957ABCF00CC15F3 /* TransactionsView.swift in Sources */,
+				FCCCE4652958CA140029D573 /* Configurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

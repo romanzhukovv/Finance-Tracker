@@ -20,10 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let transactionsVC = TransactionsViewController()
-        let transactionsVM = TransactionsViewModel()
-        transactionsVC.viewModel = transactionsVM
-        transactionsVC.rootView.viewModel = transactionsVM
+        let transactionsVC = Configurator.createTransactionListModule()
         let navigationController = UINavigationController(rootViewController: transactionsVC)
         
         let navBarAppearance = UINavigationBarAppearance()

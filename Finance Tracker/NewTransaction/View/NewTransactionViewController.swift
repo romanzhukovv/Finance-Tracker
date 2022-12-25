@@ -7,10 +7,9 @@
 
 import UIKit
 
-class NewTransactionViewController: UIViewController {
+class NewTransactionViewController: FTBaseViewController<NewTransactionView> {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .white
     }
 }
