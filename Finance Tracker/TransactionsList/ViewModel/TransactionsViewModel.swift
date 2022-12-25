@@ -16,14 +16,13 @@ protocol TransactionsViewModelProtocol: AnyObject {
 }
 
 final class TransactionsViewModel: TransactionsViewModelProtocol {
+    var transactions: [Transaction] = []
 
     var balance: Double = 0.0 {
         didSet {
             viewModelDidChange?(self)
         }
     }
-    
-    var transactions: [Transaction] = []
     
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
     
@@ -38,6 +37,6 @@ final class TransactionsViewModel: TransactionsViewModelProtocol {
     
     private func createTransaction(_ amount: Double) {
         let transaction = Transaction(amount: amount, date: Date(), category: nil)
-        transactions.append(transaction)
+        transactions.insert(transaction, at: 0)
     }
 }

@@ -11,14 +11,18 @@ final class TransactionsViewController: FTBaseViewController<TransactionsView> {
     
     var viewModel: TransactionsViewModelProtocol!
     
-//    override func loadView() {
-//        super.loadView()
-//        rootView.viewModel = viewModel
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Transactions"
+        
+        rootView.addTransactionButton(self, with: #selector(addTransactionButtonAction), for: .touchUpInside)
+    }
+    
+    @objc private func addTransactionButtonAction() {
+        let newTransactionVC = NewTransactionViewController()
+        newTransactionVC.title = "New Transaction"
+        newTransactionVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(newTransactionVC, animated: true)
     }
 }
 

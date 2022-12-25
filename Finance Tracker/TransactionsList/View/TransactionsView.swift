@@ -108,14 +108,13 @@ extension TransactionsView {
         transactionsList.delegate = self
         transactionsList.dataSource = self
         transactionsList.register(UITableViewCell.self, forCellReuseIdentifier: "transactionCell")
+        transactionsList.allowsSelection = false
         
-        addTransactionButton.addTarget(self, action: #selector(addTransactionButtonAction), for: .touchUpInside)
         topUpButton.addTarget(self, action: #selector(topUpButtonAction), for: .touchUpInside)
     }
     
-    @objc private func addTransactionButtonAction() {
-//        let newTransactionVC = NewTransactionViewController()
-//        navigationController?.pushViewController(newTransactionVC, animated: true)
+    func addTransactionButton(_ target: Any?, with action: Selector, for controlEvent: UIControl.Event) {
+        addTransactionButton.addTarget(target, action: action, for: controlEvent)
     }
     
     @objc private func topUpButtonAction() {
@@ -126,7 +125,7 @@ extension TransactionsView {
 
 extension TransactionsView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.transactions.count
+        viewModel.numbersOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -136,13 +135,9 @@ extension TransactionsView: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        transactionsList.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        1
+//    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         "Transactions"

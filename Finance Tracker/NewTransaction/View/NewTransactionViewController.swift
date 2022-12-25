@@ -12,8 +12,5 @@ class NewTransactionViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        title = "New transaction"
-        
-        UINavigationBar.appearance().prefersLargeTitles = false
     }
 }
