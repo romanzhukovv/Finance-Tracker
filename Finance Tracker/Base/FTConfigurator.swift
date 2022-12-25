@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol ConfiguratorProtocol {
-    func createTransactionListModule(router: RouterProtocol) -> UIViewController
-    func createNewTransactionModule(router: RouterProtocol) -> UIViewController
+protocol FTConfiguratorProtocol {
+    func createTransactionListModule(router: FTRouterProtocol) -> UIViewController
+    func createNewTransactionModule(router: FTRouterProtocol) -> UIViewController
 }
 
-final class Configurator: ConfiguratorProtocol {
-    func createTransactionListModule(router: RouterProtocol) -> UIViewController {
+final class FTConfigurator: FTConfiguratorProtocol {
+    func createTransactionListModule(router: FTRouterProtocol) -> UIViewController {
         let transactions: [Transaction] = []
         let view = TransactionsViewController()
         let viewModel = TransactionsViewModel()
@@ -24,7 +24,7 @@ final class Configurator: ConfiguratorProtocol {
         return view
     }
     
-    func createNewTransactionModule(router: RouterProtocol) -> UIViewController {
+    func createNewTransactionModule(router: FTRouterProtocol) -> UIViewController {
         let view = NewTransactionViewController()
         let viewModel = NewTransactionViewModel()
         viewModel.router = router

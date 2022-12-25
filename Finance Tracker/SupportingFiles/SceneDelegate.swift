@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let navigationController = UINavigationController()
-        let configurator = Configurator()
-        let router = Router(navigationController: navigationController, configurator: configurator)
+        let configurator = FTConfigurator()
+        let router = FTRouter(navigationController: navigationController, configurator: configurator)
         router.initTransactionsListView()
         window?.rootViewController = navigationController
         

@@ -7,20 +7,20 @@
 
 import UIKit
 
-protocol RouterProtocol {
+protocol FTRouterProtocol {
     var navigationController: UINavigationController? { get set }
-    var configurator: ConfiguratorProtocol? { get set }
+    var configurator: FTConfiguratorProtocol? { get set }
     
     func initTransactionsListView()
     func pushNewTransactionView()
     func dismissNewTransactionView()
 }
 
-class Router: RouterProtocol {
+class FTRouter: FTRouterProtocol {
     var navigationController: UINavigationController?
-    var configurator: ConfiguratorProtocol?
+    var configurator: FTConfiguratorProtocol?
     
-    init(navigationController: UINavigationController, configurator: ConfiguratorProtocol) {
+    init(navigationController: UINavigationController, configurator: FTConfiguratorProtocol) {
         self.navigationController = navigationController
         self.configurator = configurator
     }
@@ -28,6 +28,7 @@ class Router: RouterProtocol {
     func initTransactionsListView() {
         if let navigationController = navigationController {
             guard let initialViewController = configurator?.createTransactionListModule(router: self) else { return }
+            initialViewController.title = "Transactions"
             navigationController.viewControllers = [initialViewController]
         }
     }

@@ -62,6 +62,7 @@ final class TransactionsView: FTBaseView {
         viewModel.viewModelDidChange = { [weak self] viewModel in
             guard let self = self else { return }
             self.balanceLabel.text = "\(self.viewModel.balance)"
+            self.transactionsList.reloadData()
         }
     }
 }
@@ -110,17 +111,17 @@ extension TransactionsView {
         transactionsList.register(UITableViewCell.self, forCellReuseIdentifier: "transactionCell")
         transactionsList.allowsSelection = false
         
-        topUpButton.addTarget(self, action: #selector(topUpButtonAction), for: .touchUpInside)
+        addTransactionButton.addTarget(self, action: #selector(addTransactionButtonAction), for: .touchUpInside)
     }
     
-    func addTransactionButton(_ target: Any?, with action: Selector, for controlEvent: UIControl.Event) {
-        addTransactionButton.addTarget(target, action: action, for: controlEvent)
+    func topUpButtonAction(_ target: Any?, with action: Selector, for controlEvent: UIControl.Event) {
+        topUpButton.addTarget(target, action: action, for: controlEvent)
     }
     
-    @objc private func topUpButtonAction() {
-        viewModel.topUpBalance(200)
-        transactionsList.reloadData()
+    @objc private func addTransactionButtonAction() {
+        viewModel.addTransaction()
     }
+    
 }
 
 extension TransactionsView: UITableViewDataSource, UITableViewDelegate {

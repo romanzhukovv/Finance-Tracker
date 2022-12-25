@@ -13,17 +13,35 @@ final class TransactionsViewController: FTBaseViewController<TransactionsView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Transactions"
         
-        rootView.addTransactionButton(self, with: #selector(addTransactionButtonAction), for: .touchUpInside)
+        rootView.topUpButtonAction(self, with: #selector(topUpButtonAction), for: .touchUpInside)
     }
     
-    @objc private func addTransactionButtonAction() {
-//        let newTransactionVC = NewTransactionViewController()
-//        newTransactionVC.title = "New Transaction"
-//        newTransactionVC.navigationItem.largeTitleDisplayMode = .never
-//        navigationController?.pushViewController(newTransactionVC, animated: true)
-        viewModel.addTransaction()
+    private func showAlert(completion: @escaping(String) -> Void) {
+        let alert = UIAlertController(title: "Top Up your balance",
+                                      message: "Enter amount, please",
+                                      preferredStyle: .alert)
+        
+        let addAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            guard let amount = alert.textFields?.first?.text, !amount.isEmpty, Double(amount) != nil else { return }
+            completion(amount)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alert.addAction(addAction)
+        alert.addAction(cancelAction)
+        alert.addTextField { textField in
+            textField.placeholder = "Enter amount"
+        }
+        
+        present(alert, animated: true)
+    }
+    
+    @objc private func topUpButtonAction() {
+        showAlert { amount in
+            self.viewModel.topUpBalance(Double(amount) ?? 0.0)
+        }
     }
 }
 

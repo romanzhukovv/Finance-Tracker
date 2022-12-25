@@ -8,13 +8,13 @@
 import UIKit
 
 protocol NewTransactionViewModelProtocol: AnyObject {
-    var router: RouterProtocol? { get set }
+    var router: FTRouterProtocol? { get set }
     func addButtonPressed()
 }
 
 final class NewTransactionViewModel: NewTransactionViewModelProtocol {
     
-    var router: RouterProtocol?
+    var router: FTRouterProtocol?
     
     func addButtonPressed() {
         router?.dismissNewTransactionView()

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TransactionsViewModelProtocol: AnyObject {
-    var router: RouterProtocol? { get set }
+    var router: FTRouterProtocol? { get set }
     var balance: Double { get set }
     var transactions: [Transaction]! { get set }
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)? { get set }
@@ -19,13 +19,10 @@ protocol TransactionsViewModelProtocol: AnyObject {
 
 final class TransactionsViewModel: TransactionsViewModelProtocol {
     
-    var router: RouterProtocol?
-    
-    var transactions: [Transaction]!
-    
+    var router: FTRouterProtocol?
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
-    
-    var balance: Double = 0.0 {
+    var balance: Double = 0.0
+    var transactions: [Transaction]! {
         didSet {
             viewModelDidChange?(self)
         }
