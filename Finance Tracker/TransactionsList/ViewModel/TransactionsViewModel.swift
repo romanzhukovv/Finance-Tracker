@@ -15,7 +15,7 @@ protocol TransactionsViewModelProtocol: AnyObject {
     func numbersOfRows() -> Int
 }
 
-class TransactionsViewModel: TransactionsViewModelProtocol {
+final class TransactionsViewModel: TransactionsViewModelProtocol {
 
     var balance: Double = 0.0 {
         didSet {
