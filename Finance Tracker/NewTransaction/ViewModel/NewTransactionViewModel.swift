@@ -10,6 +10,7 @@ import UIKit
 protocol NewTransactionViewModelProtocol: AnyObject {
     var router: FTRouterProtocol? { get set }
     var newTransaction: Transaction? { get set }
+    var delegate: NewTransactionViewModelDelegate? { get set }
     
     func numberOfRowsForPickerView() -> Int
     func rowTitleForPickerView(row: Int) -> String
@@ -46,7 +47,7 @@ final class NewTransactionViewModel: NewTransactionViewModelProtocol {
     
     func addButtonPressed() {
         guard let amount = amount else { return }
-        let transaction = Transaction(amount: amount, transactionType: .purchase(category ?? .other))
+        let transaction = Transaction(amount: amount, transactionType: .purchase(category ?? .groceries))
         delegate?.createNewTransaction(transaction: transaction)
         router?.popNewTransactionView()
     }

@@ -12,7 +12,7 @@ protocol FTRouterProtocol {
     var configurator: FTConfiguratorProtocol? { get set }
     
     func initTransactionsListView()
-    func pushNewTransactionView(viewModel: NewTransactionViewModel)
+    func pushNewTransactionView(viewModel: NewTransactionViewModelProtocol)
     func popNewTransactionView()
 }
 
@@ -33,7 +33,7 @@ class FTRouter: FTRouterProtocol {
         }
     }
     
-    func pushNewTransactionView(viewModel: NewTransactionViewModel) {
+    func pushNewTransactionView(viewModel: NewTransactionViewModelProtocol) {
         if let navigationController = navigationController {
             guard let newTransactionView = configurator?.createNewTransactionModule(router: self, viewModel: viewModel) else { return }
             newTransactionView.title = "New Transaction"
