@@ -68,7 +68,7 @@ extension TransactionTableViewCell {
         NSLayoutConstraint.activate([
             verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            verticalStackView.widthAnchor.constraint(equalToConstant: 150),
+            verticalStackView.widthAnchor.constraint(equalToConstant: 100),
             verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
             amountLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),

@@ -15,7 +15,7 @@ final class TransactionsView: FTBaseView {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "0.0$"
-        label.font = .systemFont(ofSize: 24)
+        label.font = .systemFont(ofSize: 18)
         label.backgroundColor = .systemGray6
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 10
@@ -125,11 +125,11 @@ extension TransactionsView {
 extension TransactionsView: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.sections.count
+        viewModel.numbersOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.sections[section].transactions.count
+        viewModel.numbersOfRowsInSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,6 +139,6 @@ extension TransactionsView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        viewModel.sections[section].date
+        viewModel.titleForHeaderInSection(section: section)
     }
 }

@@ -29,6 +29,7 @@ final class FTConfigurator: FTConfiguratorProtocol {
         let viewModel = NewTransactionViewModel()
         viewModel.router = router
         view.viewModel = viewModel
+        view.rootView.viewModel = viewModel
         return view
     }
 }

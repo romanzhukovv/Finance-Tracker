@@ -17,7 +17,7 @@ struct Transaction {
         case topUp
         case purchase(PurchaseCategory)
         
-        enum PurchaseCategory: String {
+        enum PurchaseCategory: String, CaseIterable {
             case groceries = "Groceries"
             case taxi = "Taxi"
             case electronics = "Electronics"
@@ -25,9 +25,4 @@ struct Transaction {
             case other = "Other"
         }
     }
-}
-
-struct TransactionSection {
-    let date: String
-    let transactions: [Transaction]
 }

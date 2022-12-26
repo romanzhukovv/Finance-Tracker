@@ -12,19 +12,22 @@ protocol TransactionsViewModelProtocol: AnyObject {
     var balance: Double { get set }
     var transactions: [Transaction]! { get set }
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)? { get set }
-    var sections: [TransactionSection] { get set }
+    var sections: [TransactionsSection] { get set }
     
     func topUpBalance(_ amount: Double)
     func addTransaction()
     func cellViewModel(at indexPath: IndexPath) -> TransactionCellViewModelProtocol
+    func numbersOfSections() -> Int
+    func numbersOfRowsInSection(section: Int) -> Int
+    func titleForHeaderInSection(section: Int) -> String
 }
 
 final class TransactionsViewModel: TransactionsViewModelProtocol {
-    
     var router: FTRouterProtocol?
-    var sections = [TransactionSection]()
+    var sections = [TransactionsSection]()
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
     var balance: Double = 0.0
+    
     var transactions: [Transaction]! {
         didSet {
             getSectionsByDate()
@@ -46,6 +49,20 @@ final class TransactionsViewModel: TransactionsViewModelProtocol {
         return TransactionCellViewModel(transaction: transaction)
     }
     
+    func numbersOfSections() -> Int {
+        sections.count
+    }
+    
+    func numbersOfRowsInSection(section: Int) -> Int {
+        sections[section].transactions.count
+    }
+    
+    func titleForHeaderInSection(section: Int) -> String {
+        sections[section].date
+    }
+}
+
+extension TransactionsViewModel {
     private func createTransaction(_ amount: Double) {
         let transaction = Transaction(amount: amount, transactionType: .topUp)
         transactions.insert(transaction, at: 0)
@@ -57,7 +74,7 @@ final class TransactionsViewModel: TransactionsViewModelProtocol {
         }
         
         sections = groups.map { (key, values) in
-            return TransactionSection(date: key, transactions: values)
+            return TransactionsSection(date: key, transactions: values)
         }
     }
 }

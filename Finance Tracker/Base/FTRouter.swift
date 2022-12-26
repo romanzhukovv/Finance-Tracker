@@ -44,7 +44,7 @@ class FTRouter: FTRouterProtocol {
     
     func dismissNewTransactionView() {
         if let navigationController = navigationController {
-            navigationController.dismiss(animated: true)
+            navigationController.popViewController(animated: true)
         }
     }
     
