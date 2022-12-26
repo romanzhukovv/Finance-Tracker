@@ -12,7 +12,7 @@ protocol TransactionsViewModelProtocol: AnyObject {
     var balance: Double { get set }
     var transactions: [Transaction]! { get set }
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)? { get set }
-    var sections: [TransactionGroup] { get set }
+    var sections: [TransactionSection] { get set }
     
     func topUpBalance(_ amount: Double)
     func addTransaction()
@@ -21,21 +21,13 @@ protocol TransactionsViewModelProtocol: AnyObject {
 
 final class TransactionsViewModel: TransactionsViewModelProtocol {
     
-    var sections = [TransactionGroup]()
     var router: FTRouterProtocol?
+    var sections = [TransactionSection]()
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
     var balance: Double = 0.0
     var transactions: [Transaction]! {
         didSet {
-            
-            let groups = Dictionary(grouping: transactions) { transaction in
-                transaction.date
-            }
-            
-            sections = groups.map { (key, values) in
-                return TransactionGroup(date: key, transactions: values)
-            }
-            
+            getSectionsByDate()
             viewModelDidChange?(self)
         }
     }
@@ -57,5 +49,15 @@ final class TransactionsViewModel: TransactionsViewModelProtocol {
     private func createTransaction(_ amount: Double) {
         let transaction = Transaction(amount: amount, transactionType: .topUp)
         transactions.insert(transaction, at: 0)
+    }
+    
+    private func getSectionsByDate() {
+        let groups = Dictionary(grouping: transactions) { transaction in
+            transaction.date
+        }
+        
+        sections = groups.map { (key, values) in
+            return TransactionSection(date: key, transactions: values)
+        }
     }
 }

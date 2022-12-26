@@ -27,7 +27,7 @@ struct Transaction {
     }
 }
 
-struct TransactionGroup {
+struct TransactionSection {
     let date: String
     let transactions: [Transaction]
 }
