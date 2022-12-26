@@ -16,13 +16,12 @@ struct Transaction {
         case topUp
         case purchase(PurchaseCategory)
         
-        enum PurchaseCategory {
-            case groceries
-            case taxi
-            case electronics
-            case restaurant
-            case other
+        enum PurchaseCategory: String {
+            case groceries = "Groceries"
+            case taxi = "Taxi"
+            case electronics = "Electronics"
+            case restaurant = "Restaurant"
+            case other = "Other"
         }
     }
-    
 }

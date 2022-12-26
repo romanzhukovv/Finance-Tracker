@@ -14,7 +14,7 @@ final class TransactionsView: FTBaseView {
     private let balanceLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "0.0 $"
+        label.text = "0.0$"
         label.font = .systemFont(ofSize: 24)
         label.backgroundColor = .systemGray6
         label.layer.masksToBounds = true
@@ -108,7 +108,7 @@ extension TransactionsView {
         
         transactionsList.delegate = self
         transactionsList.dataSource = self
-        transactionsList.register(UITableViewCell.self, forCellReuseIdentifier: "transactionCell")
+        transactionsList.register(TransactionTableViewCell.self, forCellReuseIdentifier: TransactionTableViewCell.reuseId)
         transactionsList.allowsSelection = false
         
         addTransactionButton.addTarget(self, action: #selector(addTransactionButtonAction), for: .touchUpInside)
@@ -129,9 +129,8 @@ extension TransactionsView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = transactionsList.dequeueReusableCell(withIdentifier: "transactionCell")!
-        let transaction = viewModel.transactions[indexPath.row]
-        cell.textLabel?.text = "\(transaction.amount)   \(transaction.date)"
+        guard let cell = transactionsList.dequeueReusableCell(withIdentifier: TransactionTableViewCell.reuseId, for: indexPath) as? TransactionTableViewCell else { return UITableViewCell() }
+        cell.viewModel = viewModel.cellViewModel(at: indexPath)
         return cell
     }
     

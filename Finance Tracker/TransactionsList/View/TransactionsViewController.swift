@@ -17,6 +17,15 @@ final class TransactionsViewController: FTBaseViewController<TransactionsView> {
         rootView.topUpButtonAction(self, with: #selector(topUpButtonAction), for: .touchUpInside)
     }
     
+    @objc private func topUpButtonAction() {
+        showAlert { [weak self] amount in
+            guard let self = self else { return }
+            self.viewModel.topUpBalance(Double(amount) ?? 0.0)
+        }
+    }
+}
+
+extension TransactionsViewController {
     private func showAlert(completion: @escaping(String) -> Void) {
         let alert = UIAlertController(title: "Top Up your balance",
                                       message: "Enter amount, please",
@@ -37,13 +46,6 @@ final class TransactionsViewController: FTBaseViewController<TransactionsView> {
         }
         
         present(alert, animated: true)
-    }
-    
-    @objc private func topUpButtonAction() {
-        showAlert { [weak self] amount in
-            guard let self = self else { return }
-            self.viewModel.topUpBalance(Double(amount) ?? 0.0)
-        }
     }
 }
 

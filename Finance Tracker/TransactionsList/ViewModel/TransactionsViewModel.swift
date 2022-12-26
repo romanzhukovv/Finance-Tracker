@@ -15,6 +15,7 @@ protocol TransactionsViewModelProtocol: AnyObject {
     func topUpBalance(_ amount: Double)
     func addTransaction()
     func numbersOfRows() -> Int
+    func cellViewModel(at indexPath: IndexPath) -> TransactionCellViewModelProtocol
 }
 
 final class TransactionsViewModel: TransactionsViewModelProtocol {
@@ -39,6 +40,11 @@ final class TransactionsViewModel: TransactionsViewModelProtocol {
     
     func numbersOfRows() -> Int {
         transactions.count
+    }
+    
+    func cellViewModel(at indexPath: IndexPath) -> TransactionCellViewModelProtocol {
+        let transaction = transactions[indexPath.row]
+        return TransactionCellViewModel(transaction: transaction)
     }
     
     private func createTransaction(_ amount: Double) {
