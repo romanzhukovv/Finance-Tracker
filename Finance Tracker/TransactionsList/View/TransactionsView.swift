@@ -49,7 +49,6 @@ final class TransactionsView: FTBaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -124,8 +123,13 @@ extension TransactionsView {
 }
 
 extension TransactionsView: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel.sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numbersOfRows()
+        viewModel.sections[section].transactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,11 +138,7 @@ extension TransactionsView: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        1
-//    }
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "Transactions"
+        viewModel.sections[section].date
     }
 }

@@ -29,7 +29,7 @@ class TransactionTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let dateLabel: UILabel = {
+    private let timeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
         label.textAlignment = .center
@@ -61,7 +61,7 @@ extension TransactionTableViewCell {
     private func addViews() {
         contentView.setupViews(verticalStackView, amountLabel)
         verticalStackView.addArrangedSubview(categoryLabel)
-        verticalStackView.addArrangedSubview(dateLabel)
+        verticalStackView.addArrangedSubview(timeLabel)
     }
     
     private func layoutViews() {
@@ -81,6 +81,6 @@ extension TransactionTableViewCell {
         amountLabel.text = "\(viewModel.amount)$"
         amountLabel.textColor = viewModel.amountColor
         categoryLabel.text = "\(viewModel.transactionType)"
-        dateLabel.text = "\(viewModel.date)"
+        timeLabel.text = viewModel.time
     }
 }

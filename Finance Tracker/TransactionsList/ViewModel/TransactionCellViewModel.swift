@@ -10,7 +10,7 @@ import UIKit
 protocol TransactionCellViewModelProtocol {
     var amount: String { get }
     var amountColor: UIColor { get }
-    var date: String { get }
+    var time: String { get }
     var transactionType: String { get }
     init(transaction: Transaction)
 }
@@ -22,8 +22,8 @@ final class TransactionCellViewModel: TransactionCellViewModelProtocol {
         getTransactionSign() + "\(transaction.amount)"
     }
     
-    var date: String {
-        "\(transaction.date)"
+    var time: String {
+        "\(transaction.time)"
     }
     
     var transactionType: String {

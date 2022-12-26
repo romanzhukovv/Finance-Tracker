@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FC3037B729598E2200491A41 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3037B629598E2200491A41 /* TransactionTableViewCell.swift */; };
 		FC3037B92959900E00491A41 /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3037B82959900E00491A41 /* TransactionCellViewModel.swift */; };
+		FC46E0EC2959D4850013A9D3 /* Date+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC46E0EB2959D4850013A9D3 /* Date+ext.swift */; };
 		FC70E10A295798A800D3637D /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70E109295798A800D3637D /* TransactionsViewModel.swift */; };
 		FC70E10C295798DA00D3637D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC70E10B295798DA00D3637D /* Transaction.swift */; };
 		FC7E7457295734FE002C2F98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7E7456295734FE002C2F98 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		FC3037B629598E2200491A41 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		FC3037B82959900E00491A41 /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
+		FC46E0EB2959D4850013A9D3 /* Date+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ext.swift"; sourceTree = "<group>"; };
 		FC70E109295798A800D3637D /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		FC70E10B295798DA00D3637D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		FC7E7453295734FE002C2F98 /* Finance Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Finance Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				FCCCE45C295874D90029D573 /* UIView+ext.swift */,
+				FC46E0EB2959D4850013A9D3 /* Date+ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				FCD065A62957B1B500CC15F3 /* NewTransactionViewController.swift in Sources */,
 				FCCCE4632958955C0029D573 /* NewTransactionView.swift in Sources */,
 				FC7E7459295734FE002C2F98 /* SceneDelegate.swift in Sources */,
+				FC46E0EC2959D4850013A9D3 /* Date+ext.swift in Sources */,
 				FCCCE45B295874350029D573 /* FTBaseView.swift in Sources */,
 				FCCCE461295878D40029D573 /* FTBaseViewController.swift in Sources */,
 				FCCCE4672958DEA90029D573 /* FTRouter.swift in Sources */,

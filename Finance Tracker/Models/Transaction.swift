@@ -9,7 +9,8 @@ import Foundation
 
 struct Transaction {
     let amount: Double
-    let date: Date
+    let date = Date().toString("dd.MM.yyyy")
+    let time = Date().toString("HH:mm:ss")
     let transactionType: TransactionType
     
     enum TransactionType {
@@ -24,4 +25,9 @@ struct Transaction {
             case other = "Other"
         }
     }
+}
+
+struct TransactionGroup {
+    let date: String
+    let transactions: [Transaction]
 }

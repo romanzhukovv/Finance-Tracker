@@ -12,19 +12,30 @@ protocol TransactionsViewModelProtocol: AnyObject {
     var balance: Double { get set }
     var transactions: [Transaction]! { get set }
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)? { get set }
+    var sections: [TransactionGroup] { get set }
+    
     func topUpBalance(_ amount: Double)
     func addTransaction()
-    func numbersOfRows() -> Int
     func cellViewModel(at indexPath: IndexPath) -> TransactionCellViewModelProtocol
 }
 
 final class TransactionsViewModel: TransactionsViewModelProtocol {
     
+    var sections = [TransactionGroup]()
     var router: FTRouterProtocol?
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
     var balance: Double = 0.0
     var transactions: [Transaction]! {
         didSet {
+            
+            let groups = Dictionary(grouping: transactions) { transaction in
+                transaction.date
+            }
+            
+            sections = groups.map { (key, values) in
+                return TransactionGroup(date: key, transactions: values)
+            }
+            
             viewModelDidChange?(self)
         }
     }
@@ -38,17 +49,13 @@ final class TransactionsViewModel: TransactionsViewModelProtocol {
         router?.pushNewTransactionView()
     }
     
-    func numbersOfRows() -> Int {
-        transactions.count
-    }
-    
     func cellViewModel(at indexPath: IndexPath) -> TransactionCellViewModelProtocol {
-        let transaction = transactions[indexPath.row]
+        let transaction = sections[indexPath.section].transactions[indexPath.row]
         return TransactionCellViewModel(transaction: transaction)
     }
     
     private func createTransaction(_ amount: Double) {
-        let transaction = Transaction(amount: amount, date: Date(), transactionType: .topUp)
+        let transaction = Transaction(amount: amount, transactionType: .topUp)
         transactions.insert(transaction, at: 0)
     }
 }
