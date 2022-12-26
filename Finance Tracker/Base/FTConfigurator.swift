@@ -9,10 +9,11 @@ import UIKit
 
 protocol FTConfiguratorProtocol {
     func createTransactionListModule(router: FTRouterProtocol) -> UIViewController
-    func createNewTransactionModule(router: FTRouterProtocol) -> UIViewController
+    func createNewTransactionModule(router: FTRouterProtocol, viewModel: NewTransactionViewModel) -> UIViewController
 }
 
 final class FTConfigurator: FTConfiguratorProtocol {
+    
     func createTransactionListModule(router: FTRouterProtocol) -> UIViewController {
         let transactions: [Transaction] = []
         let view = TransactionsViewController()
@@ -24,9 +25,8 @@ final class FTConfigurator: FTConfiguratorProtocol {
         return view
     }
     
-    func createNewTransactionModule(router: FTRouterProtocol) -> UIViewController {
+    func createNewTransactionModule(router: FTRouterProtocol, viewModel: NewTransactionViewModel) -> UIViewController {
         let view = NewTransactionViewController()
-        let viewModel = NewTransactionViewModel()
         viewModel.router = router
         view.viewModel = viewModel
         view.rootView.viewModel = viewModel

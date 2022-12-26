@@ -42,7 +42,7 @@ final class TransactionsView: FTBaseView {
         return button
     }()
     
-    private let transactionsList: UITableView = {
+    let transactionsList: UITableView = {
         let tableView = UITableView()
         return tableView
     }()

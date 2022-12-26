@@ -12,8 +12,8 @@ protocol FTRouterProtocol {
     var configurator: FTConfiguratorProtocol? { get set }
     
     func initTransactionsListView()
-    func pushNewTransactionView()
-    func dismissNewTransactionView()
+    func pushNewTransactionView(viewModel: NewTransactionViewModel)
+    func popNewTransactionView()
 }
 
 class FTRouter: FTRouterProtocol {
@@ -33,16 +33,16 @@ class FTRouter: FTRouterProtocol {
         }
     }
     
-    func pushNewTransactionView() {
+    func pushNewTransactionView(viewModel: NewTransactionViewModel) {
         if let navigationController = navigationController {
-            guard let newTransactionView = configurator?.createNewTransactionModule(router: self) else { return }
+            guard let newTransactionView = configurator?.createNewTransactionModule(router: self, viewModel: viewModel) else { return }
             newTransactionView.title = "New Transaction"
             newTransactionView.navigationItem.largeTitleDisplayMode = .never
             navigationController.pushViewController(newTransactionView, animated: true)
         }
     }
     
-    func dismissNewTransactionView() {
+    func popNewTransactionView() {
         if let navigationController = navigationController {
             navigationController.popViewController(animated: true)
         }

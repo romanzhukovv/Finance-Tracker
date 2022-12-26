@@ -13,6 +13,7 @@ protocol TransactionsViewModelProtocol: AnyObject {
     var transactions: [Transaction]! { get set }
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)? { get set }
     var sections: [TransactionsSection] { get set }
+    var newTransactionViewModel: NewTransactionViewModel? { get set }
     
     func topUpBalance(_ amount: Double)
     func addTransaction()
@@ -22,8 +23,14 @@ protocol TransactionsViewModelProtocol: AnyObject {
     func titleForHeaderInSection(section: Int) -> String
 }
 
+protocol NewTransactionViewModelDelegate: AnyObject {
+    func createNewTransaction(transaction: Transaction)
+}
+
 final class TransactionsViewModel: TransactionsViewModelProtocol {
+    
     var router: FTRouterProtocol?
+    var newTransactionViewModel: NewTransactionViewModel?
     var sections = [TransactionsSection]()
     var viewModelDidChange: ((TransactionsViewModelProtocol) -> Void)?
     var balance: Double = 0.0
@@ -41,7 +48,9 @@ final class TransactionsViewModel: TransactionsViewModelProtocol {
     }
     
     func addTransaction() {
-        router?.pushNewTransactionView()
+        newTransactionViewModel = NewTransactionViewModel()
+        newTransactionViewModel?.delegate = self
+        router?.pushNewTransactionView(viewModel: newTransactionViewModel!)
     }
     
     func cellViewModel(at indexPath: IndexPath) -> TransactionCellViewModelProtocol {
@@ -76,5 +85,12 @@ extension TransactionsViewModel {
         sections = groups.map { (key, values) in
             return TransactionsSection(date: key, transactions: values)
         }
+    }
+}
+
+extension TransactionsViewModel: NewTransactionViewModelDelegate {
+    func createNewTransaction(transaction: Transaction) {
+        balance -= transaction.amount
+        transactions.insert(transaction, at: 0)
     }
 }
