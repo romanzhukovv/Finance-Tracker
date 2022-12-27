@@ -14,22 +14,9 @@ final class NewTransactionView: FTBaseView {
     private let amountTextField: UITextField = {
         let textField = UITextField()
         textField.keyboardType = .decimalPad
-        textField.backgroundColor = .white
         textField.font = .systemFont(ofSize: 18, weight: .regular)
-        textField.textColor = .black
-        textField.attributedPlaceholder = NSAttributedString(
-            string: "Enter amount, please",
-            attributes: [
-                .foregroundColor: UIColor.systemGray,
-                .font: UIFont.systemFont(ofSize: 18, weight: .regular)
-                        ]
-        )
-        textField.layer.cornerRadius = 10
-        textField.layer.borderColor = UIColor.systemGray.cgColor
-        textField.layer.borderWidth = 1
-        
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: textField.frame.height))
-        textField.leftViewMode = .always
+        textField.placeholder = "Enter amount, please"
+        textField.borderStyle = .roundedRect
         return textField
     }()
     

@@ -14,6 +14,7 @@ struct Transaction {
     let transactionType: TransactionType
     
     enum TransactionType {
+        
         case topUp
         case purchase(PurchaseCategory)
         

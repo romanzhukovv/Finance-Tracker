@@ -19,6 +19,8 @@
 		FC7E7461295734FE002C2F98 /* Finance_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC7E745F295734FE002C2F98 /* Finance_Tracker.xcdatamodeld */; };
 		FC7E7463295734FE002C2F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7E7462295734FE002C2F98 /* Assets.xcassets */; };
 		FC7E7466295734FE002C2F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7E7464295734FE002C2F98 /* LaunchScreen.storyboard */; };
+		FCB5393D295AF1A8002997BD /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB5393C295AF1A8002997BD /* StorageManager.swift */; };
+		FCB5393F295AF1B8002997BD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB5393E295AF1B8002997BD /* NetworkManager.swift */; };
 		FCCCE45B295874350029D573 /* FTBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE45A295874350029D573 /* FTBaseView.swift */; };
 		FCCCE45D295874D90029D573 /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE45C295874D90029D573 /* UIView+ext.swift */; };
 		FCCCE461295878D40029D573 /* FTBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCCE460295878D40029D573 /* FTBaseViewController.swift */; };
@@ -45,6 +47,8 @@
 		FC7E7462295734FE002C2F98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC7E7465295734FE002C2F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC7E7467295734FE002C2F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCB5393C295AF1A8002997BD /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		FCB5393E295AF1B8002997BD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FCCCE45A295874350029D573 /* FTBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTBaseView.swift; sourceTree = "<group>"; };
 		FCCCE45C295874D90029D573 /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
 		FCCCE460295878D40029D573 /* FTBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTBaseViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				FC7E746E295739CB002C2F98 /* Resources */,
 				FCCCE4582958733F0029D573 /* Extensions */,
 				FCCCE459295874190029D573 /* Base */,
+				FCB5393B295AF189002997BD /* Services */,
 				FC70E1062957981400D3637D /* Models */,
 				FC7E746F29573A3E002C2F98 /* TransactionsList */,
 				FC7E747029573A97002C2F98 /* NewTransaction */,
@@ -161,6 +166,15 @@
 				FCD065A42957B17E00CC15F3 /* ViewModel */,
 			);
 			path = NewTransaction;
+			sourceTree = "<group>";
+		};
+		FCB5393B295AF189002997BD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FCB5393C295AF1A8002997BD /* StorageManager.swift */,
+				FCB5393E295AF1B8002997BD /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FCCCE4582958733F0029D573 /* Extensions */ = {
@@ -273,10 +287,12 @@
 				FC7E745B295734FE002C2F98 /* TransactionsViewController.swift in Sources */,
 				FC70E10A295798A800D3637D /* TransactionsViewModel.swift in Sources */,
 				FC70E10C295798DA00D3637D /* Transaction.swift in Sources */,
+				FCB5393F295AF1B8002997BD /* NetworkManager.swift in Sources */,
 				FC7E7457295734FE002C2F98 /* AppDelegate.swift in Sources */,
 				FCCCE45D295874D90029D573 /* UIView+ext.swift in Sources */,
 				FC3037B729598E2200491A41 /* TransactionTableViewCell.swift in Sources */,
 				FCD065A62957B1B500CC15F3 /* NewTransactionViewController.swift in Sources */,
+				FCB5393D295AF1A8002997BD /* StorageManager.swift in Sources */,
 				FCCCE4632958955C0029D573 /* NewTransactionView.swift in Sources */,
 				FC7E7459295734FE002C2F98 /* SceneDelegate.swift in Sources */,
 				FC46E0EC2959D4850013A9D3 /* Date+ext.swift in Sources */,
