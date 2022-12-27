@@ -26,7 +26,7 @@ final class NewTransactionViewModel: NewTransactionViewModelProtocol {
     weak var delegate: NewTransactionViewModelDelegate?
     
     private var amount: Double?
-    private var category: Transaction.TransactionType.PurchaseCategory?
+    private var category: Transaction.TransactionType?
     
     func numberOfRowsForPickerView() -> Int {
         Transaction.TransactionType.PurchaseCategory.allCases.count
@@ -42,12 +42,12 @@ final class NewTransactionViewModel: NewTransactionViewModelProtocol {
     }
     
     func getCategoryFromPickerView(row: Int) {
-        category = Transaction.TransactionType.PurchaseCategory.allCases[row]
+        category = Transaction.TransactionType.purchase(.allCases[row])
     }
     
     func addButtonPressed() {
         guard let amount = amount else { return }
-        let transaction = Transaction(amount: amount, transactionType: .purchase(category ?? .groceries))
+        let transaction = Transaction(amount: amount, transactionType: category ?? .purchase(.groceries))
         delegate?.createNewTransaction(transaction: transaction)
         router?.popNewTransactionView()
     }

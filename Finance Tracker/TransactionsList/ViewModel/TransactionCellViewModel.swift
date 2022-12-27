@@ -27,7 +27,12 @@ final class TransactionCellViewModel: TransactionCellViewModelProtocol {
     }
     
     var transactionType: String {
-        "\(transaction.transactionType)"
+        switch transaction.transactionType {
+        case .topUp:
+            return "Top Up"
+        case .purchase(let category):
+            return category.rawValue
+        }
     }
     
     private let transaction: Transaction
